@@ -1,4 +1,4 @@
-// script.js - Form handling + Smooth scroll + Image lightbox + Scroll reveal
+// script.js - Full site interactions
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -75,8 +75,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // Run on load + scroll
   revealOnScroll();
   window.addEventListener("scroll", revealOnScroll);
+
+  /* ================= STICKY SHRINKING HEADER ================= */
+  const header = document.querySelector("header");
+
+  const toggleStickyHeader = () => {
+    if (!header) return;
+    const isSticky = window.scrollY > 80;
+    header.classList.toggle("sticky", isSticky);
+    document.body.classList.toggle("has-sticky", isSticky);
+  };
+
+  toggleStickyHeader();
+  window.addEventListener("scroll", toggleStickyHeader);
+
+  /* ================= TESTIMONIAL SLIDER ================= */
+  const testimonials = document.querySelectorAll(".testimonial");
+  let tIndex = 0;
+
+  if (testimonials.length) {
+    setInterval(() => {
+      testimonials[tIndex].classList.remove("active");
+      tIndex = (tIndex + 1) % testimonials.length;
+      testimonials[tIndex].classList.add("active");
+    }, 3500);
+  }
 
 });
