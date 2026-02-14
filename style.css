@@ -70,6 +70,7 @@ nav a {
   font-size: 14px;
   position: relative;
   padding-bottom: 4px;
+  transition: transform .15s ease;
 }
 
 nav a::after {
@@ -85,6 +86,10 @@ nav a::after {
 
 nav a:hover::after {
   width: 100%;
+}
+
+nav a:hover {
+  transform: translateY(-1px);
 }
 
 /* HAMBURGER */
@@ -115,12 +120,19 @@ nav a:hover::after {
 .hero h1 {
   font-size: 26px;
   margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: heroIn .7s ease forwards;
 }
 
 .hero p {
   font-size: 15px;
   opacity: .9;
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: heroIn .7s ease forwards;
+  animation-delay: .12s;
 }
 
 .hero-cta {
@@ -145,10 +157,17 @@ nav a:hover::after {
   box-shadow: 0 6px 14px rgba(0,0,0,.25);
 }
 
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
 /* ================= SECTIONS ================= */
 .section {
   padding: 40px 16px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: sectionFade .7s ease forwards;
 }
 
 .section h2 {
@@ -181,10 +200,11 @@ nav a:hover::after {
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,.12);
   transition: transform .25s ease, box-shadow .25s ease;
+  animation: cardIn .5s ease both;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.01);
   box-shadow: 0 12px 28px rgba(0,0,0,.18);
 }
 
@@ -196,6 +216,7 @@ nav a:hover::after {
   box-shadow: 0 8px 20px rgba(0,0,0,.15);
   transition: transform .3s ease;
   cursor: zoom-in;
+  animation: imgIn .6s ease both;
 }
 
 .gallery img:hover {
@@ -221,6 +242,7 @@ nav a:hover::after {
   display: block;
   opacity: 1;
   transform: translateX(0);
+  animation: testimonialIn .45s ease both;
 }
 
 /* FORM */
@@ -242,6 +264,15 @@ form button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background .2s ease, transform .1s ease;
+}
+
+form button:hover {
+  background: #333;
+}
+
+form button:active {
+  transform: scale(0.98);
 }
 
 /* FOOTER */
@@ -269,6 +300,7 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  animation: whatsappPulse 2.8s infinite;
 }
 
 /* ================= MOBILE MENU ================= */
@@ -292,12 +324,7 @@ footer {
 
   .nav-menu.open {
     display: flex;
-    animation: fadeIn .25s ease both;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
+    animation: menuPop .25s ease both;
   }
 }
 
@@ -338,4 +365,39 @@ footer {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
+}
+
+/* ================= KEYFRAMES ================= */
+@keyframes heroIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sectionFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes imgIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes testimonialIn {
+  from { opacity: 0; transform: translateX(14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes whatsappPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+@keyframes menuPop {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
