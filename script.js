@@ -1,46 +1,60 @@
-// script.js — full interactions bundle
+// script.js – stable & mobile-safe
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ================= FORM HANDLING ================= */
-  const form = document.querySelector("form");
+  /* ===== HAMBURGER MENU ===== */
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-menu");
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", function () {
+      navMenu.classList.toggle("open");
+    });
 
-      const name = form.querySelector('input[placeholder="Your Name"]')?.value.trim();
-      const email = form.querySelector('input[type="email"]')?.value.trim();
-
-      if (!name || !email) {
-        alert("Please enter your name and email.");
-        return;
-      }
-
-      alert("Thank you! We will contact you shortly.");
-      form.reset();
+    navMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navMenu.classList.remove("open");
+      });
     });
   }
 
-  /* ================= SMOOTH SCROLL ================= */
-  const links = document.querySelectorAll('a[href^="#"]');
+  /* ===== STICKY HEADER ON SCROLL ===== */
+  const header = document.querySelector("header");
 
-  links.forEach(function (link) {
-    link.addEventListener("click", function (e) {
+  window.addEventListener("scroll", function () {
+    if (!header) return;
+    if (window.scrollY > 40) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  });
+
+  /* ===== SMOOTH SCROLL ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
-
-      if (targetId && targetId.length > 1) {
+      if (targetId.length > 1) {
         e.preventDefault();
-        const targetSection = document.querySelector(targetId);
-
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: "smooth" });
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
         }
       }
     });
   });
 
-  /* ================= IMAGE LIGHTBOX ================= */
+  /* ===== FORM SUBMIT ALERT ===== */
+  const form = document.querySelector("form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you! We will contact you shortly.");
+      form.reset();
+    });
+  }
+
+  /* ===== IMAGE CLICK TO ZOOM ===== */
   const images = document.querySelectorAll(".gallery img");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -53,69 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Close lightbox on click anywhere
     lightbox.addEventListener("click", function () {
       lightbox.style.display = "none";
       lightboxImg.src = "";
-    });
-  }
-
-  /* ================= SCROLL REVEAL ================= */
-  const reveals = document.querySelectorAll(".reveal");
-
-  const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    const revealPoint = 120;
-
-    reveals.forEach((el) => {
-      const elementTop = el.getBoundingClientRect().top;
-      if (elementTop < windowHeight - revealPoint) {
-        el.classList.add("active");
-      }
-    });
-  };
-
-  revealOnScroll();
-  window.addEventListener("scroll", revealOnScroll);
-
-  /* ================= STICKY SHRINKING HEADER ================= */
-  const header = document.querySelector("header");
-
-  const toggleStickyHeader = () => {
-    if (!header) return;
-    const isSticky = window.scrollY > 80;
-    header.classList.toggle("sticky", isSticky);
-    document.body.classList.toggle("has-sticky", isSticky);
-  };
-
-  toggleStickyHeader();
-  window.addEventListener("scroll", toggleStickyHeader);
-
-  /* ================= TESTIMONIAL SLIDER ================= */
-  const testimonials = document.querySelectorAll(".testimonial");
-  let tIndex = 0;
-
-  if (testimonials.length) {
-    setInterval(() => {
-      testimonials[tIndex].classList.remove("active");
-      tIndex = (tIndex + 1) % testimonials.length;
-      testimonials[tIndex].classList.add("active");
-    }, 3500);
-  }
-
-  /* ================= HAMBURGER MENU ================= */
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector(".nav-menu");
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("open");
-    });
-
-    navMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("open");
-      });
     });
   }
 
