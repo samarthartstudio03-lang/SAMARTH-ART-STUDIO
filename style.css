@@ -25,33 +25,32 @@ header {
 
 /* Premium Logo Styling */
 .logo {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #f4b400, #ffffff, #f4b400);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow:
-    0 1px 1px rgba(0,0,0,0.2),
-    0 4px 12px rgba(0,0,0,0.25);
+  color: #ffffff;
   position: relative;
+  padding-left: 14px;
+  line-height: 1.2;
 }
 
-/* Subtle texture overlay */
-.logo::after {
+/* Accent bar */
+.logo::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #f4b400, #ffd666);
 }
 
-/* Soft glow on hover */
+/* Subtle shine on hover (modern, not flashy) */
 .logo:hover {
-  filter: drop-shadow(0 0 8px rgba(244,180,0,0.5));
-  transition: 0.3s ease;
+  text-shadow: 0 0 12px rgba(244,180,0,0.35);
+  transition: text-shadow 0.25s ease;
 }
 
 /* Navigation */
@@ -311,3 +310,4 @@ footer {
     padding: 60px 20px;
   }
 }
+
