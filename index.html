@@ -9,7 +9,14 @@
   <meta name="description"
         content="Samarth Art Studio Pvt Ltd is a professional exhibition stall designer and manufacturer in India with 10+ years experience in custom booth design and fabrication.">
 
-  <link rel="stylesheet" href="style.css?v=3">
+  <!-- (Optional) Open Graph for social sharing -->
+  <meta property="og:title" content="Samarth Art Studio | Exhibition Stall Design & Fabrication">
+  <meta property="og:description" content="Professional exhibition stall designers in India with 10+ years experience.">
+  <meta property="og:image" content="https://samarthartstudio03-lang.github.io/SAMARTH-ART-STUDIO/images/stall1.jpg">
+  <meta property="og:url" content="https://samarthartstudio03-lang.github.io/SAMARTH-ART-STUDIO/">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 
 <body>
@@ -17,7 +24,15 @@
 <header>
   <div class="logo">Samarth Art Studio Pvt. Ltd.</div>
 
-  <nav>
+  <!-- Hamburger Menu Button -->
+  <button class="menu-toggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Navigation -->
+  <nav class="nav-menu">
     <a href="#">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -31,7 +46,7 @@
   <p>We design high-impact exhibition stalls that attract visitors and generate quality leads for your brand.</p>
 
   <div class="hero-cta">
-    <a href="#projects" class="btn">View Our Work</a>
+    <a href="#projects" class="btn">View Portfolio</a>
     <a href="#contact" class="btn">Get Free Quote</a>
   </div>
 </section>
@@ -113,18 +128,31 @@
   </p>
 
   <div class="grid gallery">
-    <img src="images/stall1.jpg" alt="Exhibition Stall Design Project 1">
-    <img src="images/stall2.jpg" alt="Custom Exhibition Booth Design 2">
-    <img src="images/stall3.jpg" alt="Trade Show Stall Fabrication 3">
-    <img src="images/stall4.jpg" alt="Exhibition Stall Fabricator India 4">
-    <img src="images/stall5.jpg" alt="Modular Exhibition Stall Design 5">
+    <img src="images/stall1.jpg" alt="Custom exhibition stall design by Samarth Art Studio in India">
+    <img src="images/stall2.jpg" alt="Exhibition booth fabrication by Samarth Art Studio">
+    <img src="images/stall3.jpg" alt="Trade show stall design by Samarth Art Studio">
+    <img src="images/stall4.jpg" alt="Modular exhibition stall by Samarth Art Studio">
+    <img src="images/stall5.jpg" alt="Exhibition pavilion stall by Samarth Art Studio">
   </div>
 </section>
 
-<section class="section gray reveal">
-  <h2>Planning an Exhibition?</h2>
-  <p>Get a free design consultation and quotation today.</p>
-  <a href="#contact" class="btn">Get Free Quote</a>
+<section id="testimonials" class="section reveal gray">
+  <h2>What Our Clients Say</h2>
+
+  <div class="testimonial-slider">
+    <div class="testimonial active">
+      <p>“Excellent quality and on-time delivery. Our stall received great response at the expo.”</p>
+      <strong>— Marketing Head, FMCG Brand</strong>
+    </div>
+    <div class="testimonial">
+      <p>“Professional team with creative designs. Smooth execution from concept to installation.”</p>
+      <strong>— Founder, Startup Company</strong>
+    </div>
+    <div class="testimonial">
+      <p>“Highly recommended for exhibition stall design and fabrication. Great experience overall.”</p>
+      <strong>— Operations Manager, Engineering Firm</strong>
+    </div>
+  </div>
 </section>
 
 <section id="contact" class="section reveal">
@@ -136,10 +164,12 @@
       <h3>Call Us</h3>
       <p>📞 +91-9555255322</p>
     </div>
+
     <div class="card">
       <h3>Email</h3>
       <p>📧 samarthartstudio03@gmail.com</p>
     </div>
+
     <div class="card">
       <h3>Location</h3>
       <p>📍 Greater Noida, UP, India</p>
@@ -161,6 +191,7 @@
   © 2026 Samarth Art Studio Pvt. Ltd. All Rights Reserved.
 </footer>
 
+<!-- WhatsApp Floating Button -->
 <a href="https://wa.me/919555255322" class="whatsapp-float" target="_blank">💬</a>
 
 <!-- Image Lightbox -->
@@ -168,7 +199,6 @@
   <img id="lightbox-img" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>
-
