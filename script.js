@@ -1,8 +1,13 @@
-// script.js – stable & mobile-safe
-
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ===== HAMBURGER MENU ===== */
+  // Sticky header
+  const header = document.querySelector("header");
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 40) header.classList.add("sticky");
+    else header.classList.remove("sticky");
+  });
+
+  // Hamburger menu toggle
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
 
@@ -11,65 +16,48 @@ document.addEventListener("DOMContentLoaded", function () {
       navMenu.classList.toggle("open");
     });
 
-    navMenu.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navMenu.classList.remove("open");
-      });
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => navMenu.classList.remove("open"));
     });
   }
 
-  /* ===== STICKY HEADER ON SCROLL ===== */
-  const header = document.querySelector("header");
-
-  window.addEventListener("scroll", function () {
-    if (!header) return;
-    if (window.scrollY > 40) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
-    }
-  });
-
-  /* ===== SMOOTH SCROLL ===== */
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-      if (targetId.length > 1) {
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
         e.preventDefault();
-        const target = document.querySelector(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+        target.scrollIntoView({ behavior: "smooth" });
       }
     });
   });
 
-  /* ===== FORM SUBMIT ALERT ===== */
-  const form = document.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Thank you! We will contact you shortly.");
-      form.reset();
-    });
-  }
-
-  /* ===== IMAGE CLICK TO ZOOM ===== */
+  // Image click zoom
   const images = document.querySelectorAll(".gallery img");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
 
   if (images.length && lightbox && lightboxImg) {
-    images.forEach(function (img) {
-      img.addEventListener("click", function () {
-        lightboxImg.src = this.src;
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
         lightbox.style.display = "flex";
       });
     });
 
-    lightbox.addEventListener("click", function () {
+    lightbox.addEventListener("click", () => {
       lightbox.style.display = "none";
       lightboxImg.src = "";
+    });
+  }
+
+  // Form alert
+  const form = document.querySelector("form");
+  if (form) {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Thank you! We will contact you shortly.");
+      form.reset();
     });
   }
 
