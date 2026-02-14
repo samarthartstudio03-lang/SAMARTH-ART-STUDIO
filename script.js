@@ -1,39 +1,35 @@
-// script.js - Form handling + Smooth scroll + Image Lightbox
+// script.js - Form handling + Smooth scroll + Image lightbox + Scroll reveal
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // Handle Contact Form Submission
+  /* ================= FORM HANDLING ================= */
   const form = document.querySelector("form");
 
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Simple validation (optional)
-      const name = form.querySelector('input[placeholder="Your Name"]').value.trim();
-      const email = form.querySelector('input[type="email"]').value.trim();
+      const name = form.querySelector('input[placeholder="Your Name"]')?.value.trim();
+      const email = form.querySelector('input[type="email"]')?.value.trim();
 
-      if (name === "" || email === "") {
+      if (!name || !email) {
         alert("Please enter your name and email.");
         return;
       }
 
-      // Success message
       alert("Thank you! We will contact you shortly.");
-
-      // Reset form
       form.reset();
     });
   }
 
-  // Smooth scroll for navigation links
+  /* ================= SMOOTH SCROLL ================= */
   const links = document.querySelectorAll('a[href^="#"]');
 
   links.forEach(function (link) {
     link.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
 
-      if (targetId.length > 1) {
+      if (targetId && targetId.length > 1) {
         e.preventDefault();
         const targetSection = document.querySelector(targetId);
 
@@ -44,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Image Click-to-Zoom (Lightbox)
+  /* ================= IMAGE LIGHTBOX ================= */
   const images = document.querySelectorAll(".gallery img");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -63,5 +59,24 @@ document.addEventListener("DOMContentLoaded", function () {
       lightboxImg.src = "";
     });
   }
+
+  /* ================= SCROLL REVEAL ================= */
+  const reveals = document.querySelectorAll(".reveal");
+
+  const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
+    const revealPoint = 120;
+
+    reveals.forEach((el) => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add("active");
+      }
+    });
+  };
+
+  // Run on load + scroll
+  revealOnScroll();
+  window.addEventListener("scroll", revealOnScroll);
 
 });
