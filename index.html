@@ -5,7 +5,9 @@
   <title>Samarth Art Studio Pvt. Ltd. | Exhibition Stall Design & Fabrication</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Samarth Art Studio Pvt Ltd is a professional exhibition stall designer and manufacturer in India with 10+ years experience in custom booth design and fabrication.">
-  <link rel="stylesheet" href="style.css?v=777">
+
+  <!-- Cache busting so GitHub loads latest CSS -->
+  <link rel="stylesheet" href="style.css?v=999">
 </head>
 
 <body>
@@ -13,7 +15,8 @@
 <header>
   <div class="logo">Samarth Art Studio Pvt. Ltd.</div>
 
-  <button class="menu-toggle" aria-label="Menu">
+  <!-- Menu Icon -->
+  <button class="menu-toggle" aria-label="Open menu">
     <span></span>
     <span></span>
     <span></span>
@@ -39,7 +42,11 @@
 
 <section id="about" class="section">
   <h2>About Us</h2>
-  <p>We are a professional exhibition stall design and manufacturing company with over <strong>10+ years of industry experience</strong>. We specialize in customized exhibition stalls that help brands stand out.</p>
+  <p>
+    We are a professional exhibition stall design and manufacturing company with over
+    <strong>10+ years of industry experience</strong>. We specialize in customized exhibition stalls
+    that help brands stand out.
+  </p>
 </section>
 
 <section id="services" class="section gray">
@@ -59,11 +66,11 @@
   <p>Some of our recent exhibition stall projects.</p>
 
   <div class="grid gallery">
-    <img src="images/stall1.jpg" alt="Exhibition Stall Design">
-    <img src="images/stall2.jpg" alt="Custom Exhibition Booth">
-    <img src="images/stall3.jpg" alt="Trade Show Stall">
-    <img src="images/stall4.jpg" alt="Exhibition Stall India">
-    <img src="images/stall5.jpg" alt="Modular Stall Design">
+    <img src="images/stall1.jpg" alt="Exhibition Stall Design by Samarth Art Studio">
+    <img src="images/stall2.jpg" alt="Custom Exhibition Booth by Samarth Art Studio">
+    <img src="images/stall3.jpg" alt="Trade Show Stall by Samarth Art Studio">
+    <img src="images/stall4.jpg" alt="Exhibition Stall India by Samarth Art Studio">
+    <img src="images/stall5.jpg" alt="Modular Stall Design by Samarth Art Studio">
   </div>
 </section>
 
@@ -109,12 +116,15 @@
   © 2026 Samarth Art Studio Pvt. Ltd. All Rights Reserved.
 </footer>
 
-<a href="https://wa.me/919555255322" class="whatsapp-float" target="_blank">💬</a>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919555255322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
 
+<!-- Lightbox -->
 <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:9999;">
   <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:12px;">
 </div>
 
-<script src="script.js?v=777"></script>
+<!-- Cache busting so GitHub loads latest JS -->
+<script src="script.js?v=999"></script>
 </body>
 </html>
