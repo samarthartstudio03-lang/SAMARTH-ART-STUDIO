@@ -1,4 +1,4 @@
-// script.js - Full site interactions
+// script.js — full interactions bundle
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -101,6 +101,22 @@ document.addEventListener("DOMContentLoaded", function () {
       tIndex = (tIndex + 1) % testimonials.length;
       testimonials[tIndex].classList.add("active");
     }, 3500);
+  }
+
+  /* ================= HAMBURGER MENU ================= */
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-menu");
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+    });
+
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+      });
+    });
   }
 
 });
