@@ -8,6 +8,7 @@
 body {
   line-height: 1.6;
   color: #222;
+  background: #fff;
 }
 
 /* ================= HEADER ================= */
@@ -63,7 +64,6 @@ nav a {
   font-weight: 500;
 }
 
-/* Premium underline hover for nav */
 nav a::after {
   content: "";
   position: absolute;
@@ -106,7 +106,6 @@ nav a:hover::after {
   flex-wrap: wrap;
 }
 
-/* Buttons */
 .btn {
   background: #f4b400;
   color: #000;
@@ -223,6 +222,40 @@ footer {
 
 .gallery img:hover {
   transform: scale(1.05);
+}
+
+/* ================= SCROLL REVEAL ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal .card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active .card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal .card {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 /* ================= WHATSAPP FLOAT ================= */
