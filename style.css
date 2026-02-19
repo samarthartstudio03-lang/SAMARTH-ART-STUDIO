@@ -44,18 +44,18 @@ header.sticky {
   letter-spacing: 0.6px;
   text-transform: uppercase;
   position: relative;
-  padding-left: 12px;
+  padding-left: 0; /* FIX: no extra padding for image */
 }
 
 .logo::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  bottom: 2px;
-  width: 3px;
-  background: linear-gradient(180deg, #f4b400, #ffd666);
-  border-radius: 2px;
+  display: none; /* FIX: remove yellow bar for image logo */
+}
+
+/* Image logo */
+.logo img {
+  height: 42px;   /* adjust if needed */
+  width: auto;
+  display: block;
 }
 
 /* NAV */
@@ -334,8 +334,8 @@ footer {
     padding: 20px 60px;
   }
 
-  .logo {
-    font-size: 22px;
+  .logo img {
+    height: 56px; /* slightly bigger logo on desktop */
   }
 
   .hero {
