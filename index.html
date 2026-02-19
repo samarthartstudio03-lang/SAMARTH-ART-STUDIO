@@ -13,16 +13,22 @@
 <body>
 
 <header>
-  <div class="logo">Samarth Art Studio Pvt. Ltd.</div>
+  <!-- LOGO (changed from text to image, path matches your folder) -->
+  <div class="logo">
+    <a href="#home">
+      <img src="images/logo.png" alt="Samarth Art Studio Pvt. Ltd. Logo">
+    </a>
+  </div>
 
   <!-- Menu Icon -->
-  <button class="menu-toggle" aria-label="Open menu">
+  <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <nav class="nav-menu">
+  <!-- Added id for reliable JS targeting -->
+  <nav class="nav-menu" id="nav-menu">
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -41,92 +47,4 @@
 </section>
 
 <section id="about" class="section">
-  <h2>About Us</h2>
-  <p>
-    We are a professional exhibition stall design and manufacturing company with over
-    <strong>10+ years of industry experience</strong>. We specialize in customized exhibition stalls
-    that help brands stand out.
-  </p>
-</section>
-
-<section id="services" class="section gray">
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card"><h3>Custom Stall Design</h3><p>Unique creative designs aligned with your brand.</p></div>
-    <div class="card"><h3>3D Visualization</h3><p>High-quality 3D designs before fabrication.</p></div>
-    <div class="card"><h3>Stall Fabrication</h3><p>In-house manufacturing with premium materials.</p></div>
-    <div class="card"><h3>Graphics & Branding</h3><p>High-resolution printing and display graphics.</p></div>
-    <div class="card"><h3>Electrical & Lighting</h3><p>Professional electrical setup & LED lighting.</p></div>
-    <div class="card"><h3>Installation & Dismantling</h3><p>On-time setup & dismantling at venues.</p></div>
-  </div>
-</section>
-
-<section id="portfolio" class="section">
-  <h2>Portfolio</h2>
-  <p>Some of our recent exhibition stall projects.</p>
-
-  <div class="grid gallery">
-    <img src="images/stall1.jpg" alt="Exhibition Stall Design by Samarth Art Studio">
-    <img src="images/stall2.jpg" alt="Custom Exhibition Booth by Samarth Art Studio">
-    <img src="images/stall3.jpg" alt="Trade Show Stall by Samarth Art Studio">
-    <img src="images/stall4.jpg" alt="Exhibition Stall India by Samarth Art Studio">
-    <img src="images/stall5.jpg" alt="Modular Stall Design by Samarth Art Studio">
-  </div>
-</section>
-
-<section class="section gray">
-  <h2>What Our Clients Say</h2>
-
-  <div class="testimonial-slider">
-    <div class="testimonial active">
-      <p>“Excellent quality and on-time delivery. Our stall received great response at the expo.”</p>
-      <strong>— Marketing Head, FMCG Brand</strong>
-    </div>
-
-    <div class="testimonial">
-      <p>“Professional team with creative designs. Smooth execution from concept to installation.”</p>
-      <strong>— Founder, Startup Company</strong>
-    </div>
-
-    <div class="testimonial">
-      <p>“Highly recommended for exhibition stall design and fabrication. Great experience overall.”</p>
-      <strong>— Operations Manager, Engineering Firm</strong>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <h2>Contact Us</h2>
-
-  <div class="grid">
-    <div class="card"><h3>Call Us</h3><p>📞 +91-9555255322</p></div>
-    <div class="card"><h3>Email</h3><p>📧 samarthartstudio03@gmail.com</p></div>
-    <div class="card"><h3>Location</h3><p>📍 Greater Noida, UP, India</p></div>
-  </div>
-
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Your Requirement"></textarea>
-    <button type="submit">Send Enquiry</button>
-  </form>
-</section>
-
-<footer>
-  © 2026 Samarth Art Studio Pvt. Ltd. All Rights Reserved.
-</footer>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919555255322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
-
-<!-- Lightbox -->
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:9999;">
-  <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:12px;">
-</div>
-
-<!-- Cache busting so GitHub loads latest JS -->
-<script src="script.js?v=999"></script>
-</body>
-</html>
-
-
+  <h2>About Us</h
