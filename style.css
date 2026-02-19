@@ -30,6 +30,7 @@ header {
   border-bottom: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   transition: padding .25s ease, box-shadow .25s ease;
+  will-change: padding;
 }
 
 header.sticky {
@@ -44,16 +45,15 @@ header.sticky {
   letter-spacing: 0.6px;
   text-transform: uppercase;
   position: relative;
-  padding-left: 0; /* FIX: no extra padding for image */
+  padding-left: 0;
 }
 
 .logo::before {
-  display: none; /* FIX: remove yellow bar for image logo */
+  display: none;
 }
 
-/* Image logo */
 .logo img {
-  height: 42px;   /* adjust if needed */
+  height: 42px;
   width: auto;
   display: block;
 }
@@ -320,10 +320,12 @@ footer {
     flex-direction: column;
     gap: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,.4);
+    pointer-events: none; /* FIX: don't block page when closed */
   }
 
   .nav-menu.open {
     display: flex;
+    pointer-events: auto; /* FIX: clickable only when open */
     animation: menuPop .25s ease both;
   }
 }
@@ -335,7 +337,7 @@ footer {
   }
 
   .logo img {
-    height: 56px; /* slightly bigger logo on desktop */
+    height: 56px;
   }
 
   .hero {
