@@ -17,15 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const navMenu = document.querySelector(".nav-menu");
 
   if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener("click", function (e) {
+      e.stopPropagation(); // prevent document click from immediately closing menu
       navMenu.classList.toggle("open");
       menuToggle.classList.toggle("active");
+      menuToggle.setAttribute(
+        "aria-expanded",
+        navMenu.classList.contains("open") ? "true" : "false"
+      );
     });
 
     navMenu.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         navMenu.classList.remove("open");
         menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
 
@@ -34,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
         navMenu.classList.remove("open");
         menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
       }
     });
   }
@@ -76,37 +83,17 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ===== Testimonial Slider Animation ===== */
   const testimonials = document.querySelectorAll(".testimonial");
   let currentTestimonial = 0;
-  let testimonialTimer = null;
 
   if (testimonials.length > 1) {
     testimonials.forEach((t, i) => {
       if (i !== 0) t.classList.remove("active");
     });
 
-    testimonialTimer = setInterval(function () {
+    setInterval(function () {
       testimonials[currentTestimonial].classList.remove("active");
       currentTestimonial = (currentTestimonial + 1) % testimonials.length;
       testimonials[currentTestimonial].classList.add("active");
     }, 3500);
   }
 
-  /* ===== Contact Form Alert ===== */
-  const form = document.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = form.querySelector('input[type="text"]');
-      const email = form.querySelector('input[type="email"]');
-
-      if (name && email && (name.value.trim() === "" || email.value.trim() === "")) {
-        alert("Please enter your name and email.");
-        return;
-      }
-
-      alert("Thank you! We will contact you shortly.");
-      form.reset();
-    });
-  }
-
-});
+  /
