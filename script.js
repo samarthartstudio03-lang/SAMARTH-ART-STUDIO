@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     lightbox.addEventListener("click", function () {
       lightbox.style.display = "none";
       lightboxImg.src = "";
-      document.body.style.overflow = ""; // restore scroll
+      document.body.style.overflow = "auto"; // restore scroll
     });
   }
 
@@ -97,3 +97,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /
+
